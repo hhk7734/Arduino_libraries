@@ -6,7 +6,7 @@ LiquidCrystal_I2C lcd( 0x27, 16, 2 );
 void setup()
 {
     // initialize the LCD
-    // lcd.begin( &Wire3);
+    // lcd.begin( &Wire3 );
     lcd.begin();
 
     lcd.print( "Hello, world!" );
