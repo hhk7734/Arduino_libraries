@@ -1,6 +1,4 @@
 #include "LiquidCrystal_I2C.h"
-#include <Arduino.h>
-#include <Wire.h>
 
 /**
  * When the display powers up, it is configured as follows:
@@ -57,7 +55,7 @@ void LiquidCrystal_I2C::begin( TwoWire *connected_wire )
     delay( 50 );
 
     // Now we pull both RS and R/W low to begin commands
-    expanderWrite( _backlightval );    // reset expanderand turn backlight off (Bit 8 =1)
+    expanderWrite( _backlightval );
     delay( 1000 );
 
     // put the LCD into 4 bit mode
@@ -197,11 +195,11 @@ void LiquidCrystal_I2C::noAutoscroll( void )
 
 // Allows us to fill the first 8 CGRAM locations
 // with custom characters
-void LiquidCrystal_I2C::createChar( uint8_t location, uint8_t charmap[] )
+void LiquidCrystal_I2C::createChar( uint8_t location, uint8_t char_map[] )
 {
     location &= 0x7;    // we only have 8 locations 0-7
     command( LCD_SETCGRAMADDR | ( location << 3 ) );
-    for( int i = 0; i < 8; i++ ) { write( charmap[i] ); }
+    for( int i = 0; i < 8; i++ ) { write( char_map[i] ); }
 }
 
 // Turn the (optional) backlight off/on

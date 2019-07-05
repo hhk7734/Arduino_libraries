@@ -1,8 +1,9 @@
 #ifndef _LIQUID_CRYSTAL_I2C_H_
 #define _LIQUID_CRYSTAL_I2C_H_
 
+#include <Arduino.h>
+#include <Wire.h>
 #include <Print.h>
-#include <inttypes.h>
 
 // commands
 #define LCD_CLEARDISPLAY 0x01
@@ -141,9 +142,10 @@ public:
     bool           getBacklight( void );
     void           autoscroll( void );
     void           noAutoscroll( void );
-    void           createChar( uint8_t, uint8_t[] );
-    void           setCursor( uint8_t, uint8_t );
-    virtual size_t write( uint8_t ) void command( uint8_t value ) { send( value, 0 ); }
+    void           createChar( uint8_t location, uint8_t char_map[] );
+    void           setCursor( uint8_t col, uint8_t row );
+    virtual size_t write( uint8_t );
+    void           command( uint8_t value ) { send( value, 0 ); }
 
     inline void blink_on( void ) { blink(); }
     inline void blink_off( void ) { noBlink(); }
