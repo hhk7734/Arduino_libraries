@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-$ git clone https://github.com/hhk7734/LiquidCrystal_I2C.git ~/Arduino/libraries/LiquidCrystal_I2C
+git clone https://github.com/hhk7734/LiquidCrystal_I2C.git ~/Arduino/libraries/LiquidCrystal_I2C
 ```
 
 ## Examples
