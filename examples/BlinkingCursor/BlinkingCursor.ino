@@ -1,36 +1,30 @@
 #include <LiquidCrystal_I2C.h>
 
 // Set the LCD address to 0x27 for a 16 chars and 2 line display
-LiquidCrystal_I2C lcd( 0x27, 16, 2 );
+LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-void setup()
-{
+void setup() {
     // initialize the LCD
     // lcd.begin( &Wire3 );
     lcd.begin();
 }
 
-void loop()
-{
+void loop() {
     bool blinking = true;
     lcd.cursor();
 
-    while( 1 )
-    {
-        if( blinking )
-        {
+    while(1) {
+        if(blinking) {
             lcd.clear();
-            lcd.print( "No cursor blink" );
+            lcd.print("No cursor blink");
             lcd.noBlink();
             blinking = false;
-        }
-        else
-        {
+        } else {
             lcd.clear();
-            lcd.print( "Cursor blink" );
+            lcd.print("Cursor blink");
             lcd.blink();
             blinking = true;
         }
-        delay( 4000 );
+        delay(4000);
     }
 }
